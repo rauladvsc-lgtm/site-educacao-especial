@@ -4,16 +4,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Educação Física e Inclusão</title>
   <meta name="description" content="Educação Física na Educação Especial: formação, acompanhamento e inclusão para educandos com deficiência.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="topo topo-institucional">
+  <header class="topo topo-institucional" id="topo">
     <div class="topo-conteudo">
       <div class="marca">
         <span class="marca-icone" aria-hidden="true">
-          <svg viewBox="0 0 100 100" width="44" height="44">
-            <circle cx="50" cy="50" r="48" fill="none" stroke="#ffffff" stroke-width="3"/>
-            <path d="M20 60 Q 35 40 50 55 T 80 45" fill="none" stroke="#ffffff" stroke-width="3"/>
+          <svg viewBox="0 0 100 100" width="42" height="42">
+            <circle cx="50" cy="50" r="46" fill="none" stroke="#ffffff" stroke-width="4"/>
+            <path d="M22 58 Q 38 36 50 52 T 78 42" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="78" cy="42" r="5" fill="#ffffff"/>
           </svg>
         </span>
         <div>
@@ -21,7 +25,12 @@
           <span>e Inclusão</span>
         </div>
       </div>
-      <nav class="menu-principal">
+
+      <button class="menu-alternar" id="menu-alternar" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="menu-principal" id="menu-principal">
         <a href="#sobre">Sobre</a>
         <a href="#missao">Missão e valores</a>
         <a href="#equipe">Equipe</a>
@@ -33,38 +42,90 @@
   </header>
 
   <section class="hero">
-    <div class="hero-texto">
-      <h1>Movimento que inclui,<br>educação que transforma.</h1>
-      <p>Educação Física na Educação Especial: propostas de movimento inclusivas, respeitosas com as singularidades, potencialidades e necessidades de cada educando.</p>
-      <a href="painel.html" class="botao botao-hero">Acessar o painel de controle</a>
+    <div class="hero-fundo" aria-hidden="true">
+      <span class="borrao borrao-1"></span>
+      <span class="borrao borrao-2"></span>
+      <span class="borrao borrao-3"></span>
     </div>
-    <div class="hero-figuras" aria-hidden="true">
-      <svg viewBox="0 0 100 100" width="70" height="70"><circle cx="50" cy="22" r="12" fill="var(--laranja)"/><path d="M50 34 L50 65 M50 42 L30 55 M50 42 L70 30 M50 65 L35 92 M50 65 L68 88" stroke="var(--laranja)" stroke-width="8" stroke-linecap="round" fill="none"/></svg>
-      <svg viewBox="0 0 100 100" width="70" height="70"><circle cx="42" cy="20" r="12" fill="var(--azul)"/><path d="M42 32 L42 58" stroke="var(--azul)" stroke-width="8" stroke-linecap="round"/><circle cx="42" cy="80" r="18" fill="none" stroke="var(--azul)" stroke-width="6"/><path d="M42 58 L42 74 M42 66 L64 66" stroke="var(--azul)" stroke-width="8" stroke-linecap="round"/></svg>
-      <svg viewBox="0 0 100 100" width="70" height="70"><circle cx="50" cy="20" r="12" fill="var(--verde)"/><path d="M50 32 L50 70 M50 40 L28 20 M50 40 L72 20 M50 70 L32 95 M50 70 L68 95" stroke="var(--verde)" stroke-width="8" stroke-linecap="round" fill="none"/></svg>
-      <svg viewBox="0 0 100 100" width="70" height="70"><circle cx="50" cy="22" r="12" fill="var(--roxo)"/><path d="M50 34 L50 68 M50 44 L30 60 M50 44 L70 60 M50 68 L38 95 M50 68 L62 95" stroke="var(--roxo)" stroke-width="8" stroke-linecap="round" fill="none"/></svg>
-      <svg viewBox="0 0 100 100" width="70" height="70"><circle cx="50" cy="26" r="12" fill="var(--rosa)"/><path d="M50 38 L50 62 M50 44 L30 30 M50 44 L70 30 M50 62 L36 60 M50 62 L64 60" stroke="var(--rosa)" stroke-width="8" stroke-linecap="round" fill="none"/></svg>
+
+    <div class="hero-conteudo">
+      <div class="hero-texto">
+        <span class="selo">Formação Continuada · Educação Física · Educação Especial</span>
+        <h1>Movimento que inclui,<br>educação que transforma.</h1>
+        <p>Propostas de Educação Física inclusivas, respeitosas com as singularidades, potencialidades e necessidades de cada educando.</p>
+        <div class="hero-botoes">
+          <a href="painel.html" class="botao botao-hero">Acessar o painel de controle</a>
+          <a href="#sobre" class="botao botao-hero-secundario">Conhecer o trabalho</a>
+        </div>
+      </div>
+
+      <div class="hero-emblema" aria-hidden="true">
+        <div class="emblema-anel">
+          <span class="emblema-figura cor-laranja-fundo">
+            <svg viewBox="0 0 100 100"><circle cx="50" cy="22" r="12" fill="#fff"/><path d="M50 34 L50 65 M50 42 L30 55 M50 42 L70 30 M50 65 L35 92 M50 65 L68 88" stroke="#fff" stroke-width="9" stroke-linecap="round" fill="none"/></svg>
+          </span>
+          <span class="emblema-figura cor-azul-fundo">
+            <svg viewBox="0 0 100 100"><circle cx="42" cy="20" r="12" fill="#fff"/><path d="M42 32 L42 58" stroke="#fff" stroke-width="9" stroke-linecap="round"/><circle cx="42" cy="80" r="18" fill="none" stroke="#fff" stroke-width="7"/><path d="M42 58 L42 74 M42 66 L64 66" stroke="#fff" stroke-width="9" stroke-linecap="round"/></svg>
+          </span>
+          <span class="emblema-figura cor-verde-fundo">
+            <svg viewBox="0 0 100 100"><circle cx="50" cy="20" r="12" fill="#fff"/><path d="M50 32 L50 70 M50 40 L28 20 M50 40 L72 20 M50 70 L32 95 M50 70 L68 95" stroke="#fff" stroke-width="9" stroke-linecap="round" fill="none"/></svg>
+          </span>
+          <span class="emblema-figura cor-roxo-fundo">
+            <svg viewBox="0 0 100 100"><circle cx="50" cy="22" r="12" fill="#fff"/><path d="M50 34 L50 68 M50 44 L30 60 M50 44 L70 60 M50 68 L38 95 M50 68 L62 95" stroke="#fff" stroke-width="9" stroke-linecap="round" fill="none"/></svg>
+          </span>
+          <span class="emblema-figura cor-rosa-fundo">
+            <svg viewBox="0 0 100 100"><circle cx="50" cy="26" r="12" fill="#fff"/><path d="M50 38 L50 62 M50 44 L30 30 M50 44 L70 30 M50 62 L36 60 M50 62 L64 60" stroke="#fff" stroke-width="9" stroke-linecap="round" fill="none"/></svg>
+          </span>
+          <div class="emblema-centro">
+            <strong>EF</strong>
+            <span>Inclusão</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <main>
     <section id="sobre" class="secao">
+      <span class="eyebrow">Sobre</span>
       <h2>Sobre o trabalho</h2>
       <p>A Educação Física na Educação Especial constitui um importante espaço de desenvolvimento, participação, autonomia, expressão corporal e inclusão. Conduzido por profissionais de Educação Física com experiência na área da Educação Especial, o trabalho articula conhecimentos teóricos, vivências profissionais e estratégias pedagógicas aplicáveis ao cotidiano escolar — sempre a partir do conhecimento das especificidades, potencialidades e interesses de cada educando.</p>
+
+      <div class="destaques">
+        <div class="destaque">
+          <span class="destaque-icone" aria-hidden="true">🧩</span>
+          <h3>Planejamento individual</h3>
+          <p>Cada proposta parte das especificidades e interesses de cada educando.</p>
+        </div>
+        <div class="destaque">
+          <span class="destaque-icone" aria-hidden="true">🤝</span>
+          <h3>Inclusão de verdade</h3>
+          <p>Participação, autonomia e protagonismo em cada atividade.</p>
+        </div>
+        <div class="destaque">
+          <span class="destaque-icone" aria-hidden="true">🎯</span>
+          <h3>Acompanhamento próximo</h3>
+          <p>Evolução, metas e frequência registradas ao longo do tempo.</p>
+        </div>
+      </div>
     </section>
 
     <section id="missao" class="secao secao-clara">
+      <span class="eyebrow">Propósito</span>
       <h2>Missão, visão e valores</h2>
       <div class="cartoes-institucional">
-        <div class="cartao-institucional">
+        <div class="cartao-institucional cartao-azul">
+          <span class="cartao-icone" aria-hidden="true">🎯</span>
           <h3>Missão</h3>
           <p>Promover o desenvolvimento integral e a inclusão de educandos com deficiência por meio da Educação Física, respeitando as singularidades, potencialidades e necessidades de cada um.</p>
         </div>
-        <div class="cartao-institucional">
+        <div class="cartao-institucional cartao-verde">
+          <span class="cartao-icone" aria-hidden="true">🔭</span>
           <h3>Visão</h3>
           <p>Ser referência em Educação Física inclusiva na rede pública de ensino, ampliando o acesso a práticas corporais que garantam participação, autonomia e protagonismo.</p>
         </div>
-        <div class="cartao-institucional">
+        <div class="cartao-institucional cartao-laranja">
+          <span class="cartao-icone" aria-hidden="true">💛</span>
           <h3>Valores</h3>
           <p>Inclusão e respeito às singularidades · Participação e protagonismo do educando · Ética e cuidado · Colaboração com famílias e escola.</p>
         </div>
@@ -72,15 +133,20 @@
     </section>
 
     <section id="equipe" class="secao">
+      <span class="eyebrow">Quem faz</span>
       <h2>Equipe</h2>
-      <div class="cartoes-institucional">
+      <div class="cartoes-institucional cartoes-equipe">
         <div class="cartao-pessoa">
-          <div class="avatar cor-rosa">NL</div>
+          <div class="avatar-anel cor-rosa">
+            <div class="avatar">NL</div>
+          </div>
           <h3>Natacha Sonsaray Lamberg</h3>
           <p>Educação Física · Educação Especial</p>
         </div>
         <div class="cartao-pessoa">
-          <div class="avatar cor-roxo">RO</div>
+          <div class="avatar-anel cor-roxo">
+            <div class="avatar">RO</div>
+          </div>
           <h3>Renata Schlemper Ocker</h3>
           <p>Educação Física · Educação Especial</p>
         </div>
@@ -88,28 +154,45 @@
     </section>
 
     <section id="galeria" class="secao secao-clara">
+      <span class="eyebrow">Registros</span>
       <h2>Galeria</h2>
       <p class="ajuda">As fotos das atividades serão publicadas aqui somente com autorização de uso de imagem registrada na ficha de cadastro de cada aluno, conforme a LGPD.</p>
       <div class="galeria-grade">
-        <div class="galeria-item">📷</div>
-        <div class="galeria-item">📷</div>
-        <div class="galeria-item">📷</div>
-        <div class="galeria-item">📷</div>
+        <div class="galeria-item"><span>📷</span>Em breve</div>
+        <div class="galeria-item"><span>📷</span>Em breve</div>
+        <div class="galeria-item"><span>📷</span>Em breve</div>
+        <div class="galeria-item"><span>📷</span>Em breve</div>
       </div>
     </section>
 
     <section id="contato" class="secao">
+      <span class="eyebrow">Fale conosco</span>
       <h2>Contato</h2>
       <p>Quer saber mais sobre o trabalho ou agendar uma conversa? Fale com a equipe:</p>
-      <ul class="lista-contato">
-        <li>📞 Telefone / WhatsApp: <em>a informar</em></li>
-        <li>✉️ E-mail: <em>a informar</em></li>
-      </ul>
+      <div class="cartao-contato">
+        <div class="contato-linha"><span aria-hidden="true">📞</span> Telefone / WhatsApp: <em>a informar</em></div>
+        <div class="contato-linha"><span aria-hidden="true">✉️</span> E-mail: <em>a informar</em></div>
+      </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="rodape">
     <p>&copy; 2026 Educação Física e Inclusão · <a href="painel.html">Acessar painel</a></p>
   </footer>
+
+  <script>
+    var botaoMenu = document.getElementById("menu-alternar");
+    var menu = document.getElementById("menu-principal");
+    botaoMenu.addEventListener("click", function () {
+      var aberto = menu.classList.toggle("aberto");
+      botaoMenu.setAttribute("aria-expanded", aberto);
+    });
+    menu.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        menu.classList.remove("aberto");
+        botaoMenu.setAttribute("aria-expanded", "false");
+      });
+    });
+  </script>
 </body>
 </html>
