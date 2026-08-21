@@ -2,178 +2,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Educação Física e Inclusão — Painel</title>
+  <title>Educação Física e Inclusão</title>
+  <meta name="description" content="Educação Física na Educação Especial: formação, acompanhamento e inclusão para educandos com deficiência.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="topo">
-    <h1>Educação Física e Inclusão</h1>
-    <p>Painel de controle — alunos, professores, inscrições e frequência</p>
-  </header>
-
-  <nav class="abas" id="abas">
-    <button class="aba-botao ativo" data-aba="inicio">🏠 Início</button>
-    <button class="aba-botao" data-aba="alunos">🧒 Alunos</button>
-    <button class="aba-botao" data-aba="professores">🧑‍🏫 Professores</button>
-    <button class="aba-botao" data-aba="inscricoes">📝 Inscrições</button>
-    <button class="aba-botao" data-aba="frequencia">✅ Frequência</button>
-  </nav>
-
-  <main>
-    <!-- INÍCIO -->
-    <section class="painel ativo" id="inicio">
-      <h2>Resumo</h2>
-      <div class="cartoes">
-        <div class="cartao cor-azul">
-          <span class="cartao-numero" id="contagem-alunos">0</span>
-          <span class="cartao-rotulo">Alunos cadastrados</span>
-        </div>
-        <div class="cartao cor-verde">
-          <span class="cartao-numero" id="contagem-professores">0</span>
-          <span class="cartao-rotulo">Professores</span>
-        </div>
-        <div class="cartao cor-laranja">
-          <span class="cartao-numero" id="contagem-inscricoes">0</span>
-          <span class="cartao-rotulo">Inscrições ativas</span>
-        </div>
-        <div class="cartao cor-roxo">
-          <span class="cartao-numero" id="contagem-frequencia">0</span>
-          <span class="cartao-rotulo">Presenças registradas</span>
+  <header class="topo topo-institucional">
+    <div class="topo-conteudo">
+      <div class="marca">
+        <span class="marca-icone" aria-hidden="true">
+          <svg viewBox="0 0 100 100" width="44" height="44">
+            <circle cx="50" cy="50" r="48" fill="none" stroke="#ffffff" stroke-width="3"/>
+            <path d="M20 60 Q 35 40 50 55 T 80 45" fill="none" stroke="#ffffff" stroke-width="3"/>
+          </svg>
+        </span>
+        <div>
+          <strong>Educação Física</strong>
+          <span>e Inclusão</span>
         </div>
       </div>
-      <p class="ajuda">Use os botões acima para cadastrar alunos, professores, inscrições e marcar presença. Tudo fica salvo automaticamente neste computador.</p>
+      <nav class="menu-principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#missao">Missão e valores</a>
+        <a href="#equipe">Equipe</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#contato">Contato</a>
+        <a href="painel.html" class="botao-menu">Acessar painel</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-texto">
+      <h1>Movimento que inclui,<br>educação que transforma.</h1>
+      <p>Educação Física na Educação Especial: propostas de movimento inclusivas, respeitosas com as singularidades, potencialidades e necessidades de cada educando.</p>
+      <a href="painel.html" class="botao botao-hero">Acessar o painel de controle</a>
+    </div>
+    <div class="hero-figuras" aria-hidden="true">
+      <svg viewBox="0 0 100 100" width="70" height="70"><circle cx="50" cy="22" r="12" fill="var(--laranja)"/><path d="M50 34 L50 65 M50 42 L30 55 M50 42 L70 30 M50 65 L35 92 M50 65 L68 88" stroke="var(--laranja)" stroke-width="8" stroke-linecap="round" fill="none"/></svg>
+      <svg viewBox="0 0 100 100" width="70" height="70"><circle cx="42" cy="20" r="12" fill="var(--azul)"/><path d="M42 32 L42 58" stroke="var(--azul)" stroke-width="8" stroke-linecap="round"/><circle cx="42" cy="80" r="18" fill="none" stroke="var(--azul)" stroke-width="6"/><path d="M42 58 L42 74 M42 66 L64 66" stroke="var(--azul)" stroke-width="8" stroke-linecap="round"/></svg>
+      <svg viewBox="0 0 100 100" width="70" height="70"><circle cx="50" cy="20" r="12" fill="var(--verde)"/><path d="M50 32 L50 70 M50 40 L28 20 M50 40 L72 20 M50 70 L32 95 M50 70 L68 95" stroke="var(--verde)" stroke-width="8" stroke-linecap="round" fill="none"/></svg>
+      <svg viewBox="0 0 100 100" width="70" height="70"><circle cx="50" cy="22" r="12" fill="var(--roxo)"/><path d="M50 34 L50 68 M50 44 L30 60 M50 44 L70 60 M50 68 L38 95 M50 68 L62 95" stroke="var(--roxo)" stroke-width="8" stroke-linecap="round" fill="none"/></svg>
+      <svg viewBox="0 0 100 100" width="70" height="70"><circle cx="50" cy="26" r="12" fill="var(--rosa)"/><path d="M50 38 L50 62 M50 44 L30 30 M50 44 L70 30 M50 62 L36 60 M50 62 L64 60" stroke="var(--rosa)" stroke-width="8" stroke-linecap="round" fill="none"/></svg>
+    </div>
+  </section>
+
+  <main>
+    <section id="sobre" class="secao">
+      <h2>Sobre o trabalho</h2>
+      <p>A Educação Física na Educação Especial constitui um importante espaço de desenvolvimento, participação, autonomia, expressão corporal e inclusão. Conduzido por profissionais de Educação Física com experiência na área da Educação Especial, o trabalho articula conhecimentos teóricos, vivências profissionais e estratégias pedagógicas aplicáveis ao cotidiano escolar — sempre a partir do conhecimento das especificidades, potencialidades e interesses de cada educando.</p>
     </section>
 
-    <!-- ALUNOS -->
-    <section class="painel" id="alunos">
-      <h2>Alunos</h2>
-      <form id="form-aluno" class="formulario">
-        <label>Nome completo
-          <input type="text" id="aluno-nome" required>
-        </label>
-        <label>Data de nascimento
-          <input type="date" id="aluno-nascimento">
-        </label>
-        <label>Escola e turma
-          <input type="text" id="aluno-escola" placeholder="Ex: EMEF Jardim das Flores — 3º A">
-        </label>
-        <label>Turno
-          <select id="aluno-turno">
-            <option value="">Selecione</option>
-            <option>Manhã</option>
-            <option>Tarde</option>
-            <option>Integral</option>
-          </select>
-        </label>
-        <label>Nome do responsável
-          <input type="text" id="aluno-responsavel">
-        </label>
-        <label>Telefone / WhatsApp
-          <input type="tel" id="aluno-telefone" placeholder="(11) 99999-0000">
-        </label>
-        <label>Diagnóstico / condição
-          <input type="text" id="aluno-diagnostico">
-        </label>
-        <label>Observações importantes
-          <textarea id="aluno-observacoes" rows="2" placeholder="Ex: sensibilidade a barulho, gosta de bola..."></textarea>
-        </label>
-        <button type="submit" class="botao botao-grande cor-azul-fundo">Salvar aluno</button>
-      </form>
-
-      <h3>Lista de alunos</h3>
-      <div class="lista" id="lista-alunos"></div>
+    <section id="missao" class="secao secao-clara">
+      <h2>Missão, visão e valores</h2>
+      <div class="cartoes-institucional">
+        <div class="cartao-institucional">
+          <h3>Missão</h3>
+          <p>Promover o desenvolvimento integral e a inclusão de educandos com deficiência por meio da Educação Física, respeitando as singularidades, potencialidades e necessidades de cada um.</p>
+        </div>
+        <div class="cartao-institucional">
+          <h3>Visão</h3>
+          <p>Ser referência em Educação Física inclusiva na rede pública de ensino, ampliando o acesso a práticas corporais que garantam participação, autonomia e protagonismo.</p>
+        </div>
+        <div class="cartao-institucional">
+          <h3>Valores</h3>
+          <p>Inclusão e respeito às singularidades · Participação e protagonismo do educando · Ética e cuidado · Colaboração com famílias e escola.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- PROFESSORES -->
-    <section class="painel" id="professores">
-      <h2>Professores</h2>
-      <form id="form-professor" class="formulario">
-        <label>Nome completo
-          <input type="text" id="professor-nome" required>
-        </label>
-        <label>Área / especialidade
-          <input type="text" id="professor-area" placeholder="Ex: Educação Física, Educação Especial">
-        </label>
-        <label>Telefone / WhatsApp
-          <input type="tel" id="professor-telefone">
-        </label>
-        <label>E-mail
-          <input type="email" id="professor-email">
-        </label>
-        <button type="submit" class="botao botao-grande cor-verde-fundo">Salvar professor</button>
-      </form>
-
-      <h3>Lista de professores</h3>
-      <div class="lista" id="lista-professores"></div>
+    <section id="equipe" class="secao">
+      <h2>Equipe</h2>
+      <div class="cartoes-institucional">
+        <div class="cartao-pessoa">
+          <div class="avatar cor-rosa">NL</div>
+          <h3>Natacha Sonsaray Lamberg</h3>
+          <p>Educação Física · Educação Especial</p>
+        </div>
+        <div class="cartao-pessoa">
+          <div class="avatar cor-roxo">RO</div>
+          <h3>Renata Schlemper Ocker</h3>
+          <p>Educação Física · Educação Especial</p>
+        </div>
+      </div>
     </section>
 
-    <!-- INSCRIÇÕES -->
-    <section class="painel" id="inscricoes">
-      <h2>Inscrições</h2>
-      <form id="form-inscricao" class="formulario">
-        <label>Aluno
-          <select id="inscricao-aluno" required></select>
-        </label>
-        <label>Dia da semana da aula
-          <select id="inscricao-dia">
-            <option value="">Selecione</option>
-            <option>Segunda-feira</option>
-            <option>Terça-feira</option>
-            <option>Quarta-feira</option>
-            <option>Quinta-feira</option>
-            <option>Sexta-feira</option>
-          </select>
-        </label>
-        <label>Horário da aula
-          <input type="time" id="inscricao-horario">
-        </label>
-        <label>Data da inscrição
-          <input type="date" id="inscricao-data">
-        </label>
-        <label>Situação
-          <select id="inscricao-status">
-            <option>Ativo</option>
-            <option>Inativo</option>
-          </select>
-        </label>
-        <button type="submit" class="botao botao-grande cor-laranja-fundo">Salvar inscrição</button>
-      </form>
-
-      <h3>Lista de inscrições</h3>
-      <div class="lista" id="lista-inscricoes"></div>
+    <section id="galeria" class="secao secao-clara">
+      <h2>Galeria</h2>
+      <p class="ajuda">As fotos das atividades serão publicadas aqui somente com autorização de uso de imagem registrada na ficha de cadastro de cada aluno, conforme a LGPD.</p>
+      <div class="galeria-grade">
+        <div class="galeria-item">📷</div>
+        <div class="galeria-item">📷</div>
+        <div class="galeria-item">📷</div>
+        <div class="galeria-item">📷</div>
+      </div>
     </section>
 
-    <!-- FREQUÊNCIA -->
-    <section class="painel" id="frequencia">
-      <h2>Frequência</h2>
-      <form id="form-frequencia" class="formulario">
-        <label>Data da aula
-          <input type="date" id="frequencia-data" required>
-        </label>
-        <label>Aluno
-          <select id="frequencia-aluno" required></select>
-        </label>
-        <label>Presença
-          <select id="frequencia-presenca">
-            <option>Presente</option>
-            <option>Faltou</option>
-          </select>
-        </label>
-        <label>Observação da aula
-          <input type="text" id="frequencia-observacao">
-        </label>
-        <button type="submit" class="botao botao-grande cor-roxo-fundo">Salvar presença</button>
-      </form>
-
-      <h3>Registros recentes</h3>
-      <div class="lista" id="lista-frequencia"></div>
+    <section id="contato" class="secao">
+      <h2>Contato</h2>
+      <p>Quer saber mais sobre o trabalho ou agendar uma conversa? Fale com a equipe:</p>
+      <ul class="lista-contato">
+        <li>📞 Telefone / WhatsApp: <em>a informar</em></li>
+        <li>✉️ E-mail: <em>a informar</em></li>
+      </ul>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 Educação Física e Inclusão</p>
+    <p>&copy; 2026 Educação Física e Inclusão · <a href="painel.html">Acessar painel</a></p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
