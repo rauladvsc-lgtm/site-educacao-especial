@@ -1,24 +1,179 @@
-<html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Educação Especial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Educação Física e Inclusão — Painel</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Educação Especial</h1>
-    <p>Recursos e apoio para famílias, educadores e estudantes.</p>
+  <header class="topo">
+    <h1>Educação Física e Inclusão</h1>
+    <p>Painel de controle — alunos, professores, inscrições e frequência</p>
   </header>
 
+  <nav class="abas" id="abas">
+    <button class="aba-botao ativo" data-aba="inicio">🏠 Início</button>
+    <button class="aba-botao" data-aba="alunos">🧒 Alunos</button>
+    <button class="aba-botao" data-aba="professores">🧑‍🏫 Professores</button>
+    <button class="aba-botao" data-aba="inscricoes">📝 Inscrições</button>
+    <button class="aba-botao" data-aba="frequencia">✅ Frequência</button>
+  </nav>
+
   <main>
-    <section>
-      <h2>Sobre</h2>
-      <p>Este site reúne materiais e informações sobre educação especial e inclusão escolar.</p>
+    <!-- INÍCIO -->
+    <section class="painel ativo" id="inicio">
+      <h2>Resumo</h2>
+      <div class="cartoes">
+        <div class="cartao cor-azul">
+          <span class="cartao-numero" id="contagem-alunos">0</span>
+          <span class="cartao-rotulo">Alunos cadastrados</span>
+        </div>
+        <div class="cartao cor-verde">
+          <span class="cartao-numero" id="contagem-professores">0</span>
+          <span class="cartao-rotulo">Professores</span>
+        </div>
+        <div class="cartao cor-laranja">
+          <span class="cartao-numero" id="contagem-inscricoes">0</span>
+          <span class="cartao-rotulo">Inscrições ativas</span>
+        </div>
+        <div class="cartao cor-roxo">
+          <span class="cartao-numero" id="contagem-frequencia">0</span>
+          <span class="cartao-rotulo">Presenças registradas</span>
+        </div>
+      </div>
+      <p class="ajuda">Use os botões acima para cadastrar alunos, professores, inscrições e marcar presença. Tudo fica salvo automaticamente neste computador.</p>
+    </section>
+
+    <!-- ALUNOS -->
+    <section class="painel" id="alunos">
+      <h2>Alunos</h2>
+      <form id="form-aluno" class="formulario">
+        <label>Nome completo
+          <input type="text" id="aluno-nome" required>
+        </label>
+        <label>Data de nascimento
+          <input type="date" id="aluno-nascimento">
+        </label>
+        <label>Escola e turma
+          <input type="text" id="aluno-escola" placeholder="Ex: EMEF Jardim das Flores — 3º A">
+        </label>
+        <label>Turno
+          <select id="aluno-turno">
+            <option value="">Selecione</option>
+            <option>Manhã</option>
+            <option>Tarde</option>
+            <option>Integral</option>
+          </select>
+        </label>
+        <label>Nome do responsável
+          <input type="text" id="aluno-responsavel">
+        </label>
+        <label>Telefone / WhatsApp
+          <input type="tel" id="aluno-telefone" placeholder="(11) 99999-0000">
+        </label>
+        <label>Diagnóstico / condição
+          <input type="text" id="aluno-diagnostico">
+        </label>
+        <label>Observações importantes
+          <textarea id="aluno-observacoes" rows="2" placeholder="Ex: sensibilidade a barulho, gosta de bola..."></textarea>
+        </label>
+        <button type="submit" class="botao botao-grande cor-azul-fundo">Salvar aluno</button>
+      </form>
+
+      <h3>Lista de alunos</h3>
+      <div class="lista" id="lista-alunos"></div>
+    </section>
+
+    <!-- PROFESSORES -->
+    <section class="painel" id="professores">
+      <h2>Professores</h2>
+      <form id="form-professor" class="formulario">
+        <label>Nome completo
+          <input type="text" id="professor-nome" required>
+        </label>
+        <label>Área / especialidade
+          <input type="text" id="professor-area" placeholder="Ex: Educação Física, Educação Especial">
+        </label>
+        <label>Telefone / WhatsApp
+          <input type="tel" id="professor-telefone">
+        </label>
+        <label>E-mail
+          <input type="email" id="professor-email">
+        </label>
+        <button type="submit" class="botao botao-grande cor-verde-fundo">Salvar professor</button>
+      </form>
+
+      <h3>Lista de professores</h3>
+      <div class="lista" id="lista-professores"></div>
+    </section>
+
+    <!-- INSCRIÇÕES -->
+    <section class="painel" id="inscricoes">
+      <h2>Inscrições</h2>
+      <form id="form-inscricao" class="formulario">
+        <label>Aluno
+          <select id="inscricao-aluno" required></select>
+        </label>
+        <label>Dia da semana da aula
+          <select id="inscricao-dia">
+            <option value="">Selecione</option>
+            <option>Segunda-feira</option>
+            <option>Terça-feira</option>
+            <option>Quarta-feira</option>
+            <option>Quinta-feira</option>
+            <option>Sexta-feira</option>
+          </select>
+        </label>
+        <label>Horário da aula
+          <input type="time" id="inscricao-horario">
+        </label>
+        <label>Data da inscrição
+          <input type="date" id="inscricao-data">
+        </label>
+        <label>Situação
+          <select id="inscricao-status">
+            <option>Ativo</option>
+            <option>Inativo</option>
+          </select>
+        </label>
+        <button type="submit" class="botao botao-grande cor-laranja-fundo">Salvar inscrição</button>
+      </form>
+
+      <h3>Lista de inscrições</h3>
+      <div class="lista" id="lista-inscricoes"></div>
+    </section>
+
+    <!-- FREQUÊNCIA -->
+    <section class="painel" id="frequencia">
+      <h2>Frequência</h2>
+      <form id="form-frequencia" class="formulario">
+        <label>Data da aula
+          <input type="date" id="frequencia-data" required>
+        </label>
+        <label>Aluno
+          <select id="frequencia-aluno" required></select>
+        </label>
+        <label>Presença
+          <select id="frequencia-presenca">
+            <option>Presente</option>
+            <option>Faltou</option>
+          </select>
+        </label>
+        <label>Observação da aula
+          <input type="text" id="frequencia-observacao">
+        </label>
+        <button type="submit" class="botao botao-grande cor-roxo-fundo">Salvar presença</button>
+      </form>
+
+      <h3>Registros recentes</h3>
+      <div class="lista" id="lista-frequencia"></div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 Educação Especial</p>
+    <p>&copy; 2026 Educação Física e Inclusão</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
