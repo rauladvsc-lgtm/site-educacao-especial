@@ -773,3 +773,150 @@ footer {
     align-self: flex-start;
   }
 }
+
+/* ================================================================
+   Página Atividades do Curso
+   ================================================================ */
+
+.hero-atividades {
+  padding: 3.5rem 1.5rem;
+}
+
+.hero-conteudo-central {
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-texto-central {
+  max-width: 720px;
+}
+
+.hero-texto-central h1 {
+  font-size: 2.1rem;
+}
+
+.stats-barra {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 14px;
+  padding: 1rem 1.6rem;
+  min-width: 150px;
+}
+
+.stat strong {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: 1.6rem;
+}
+
+.stat span {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.modulos-grade {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  margin-top: 2.5rem;
+}
+
+.modulo-card {
+  background: #fff;
+  border: 1px solid var(--cinza-borda);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(11, 35, 71, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.modulo-imagem {
+  background: linear-gradient(135deg, var(--cinza-claro), #e6e6e6);
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  color: #aaa;
+}
+
+.modulo-corpo {
+  padding: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.selo-tipo {
+  align-self: flex-start;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  color: #fff;
+}
+
+.selo-azul { background: var(--azul); }
+.selo-verde { background: var(--verde); }
+.selo-roxo { background: var(--roxo); }
+.selo-laranja { background: var(--laranja); }
+
+.modulo-corpo h3 {
+  margin: 0.2rem 0 0 0;
+  font-size: 1.05rem;
+  color: var(--azul);
+  line-height: 1.35;
+}
+
+.modulo-horas {
+  font-weight: 600;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.modulo-corpo > p {
+  margin: 0;
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.modulo-detalhes summary {
+  cursor: pointer;
+  color: var(--roxo);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: 0.3rem;
+}
+
+.modulo-detalhes[open] summary {
+  margin-bottom: 0.5rem;
+}
+
+.modulo-detalhes p {
+  margin: 0;
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 980px) {
+  .modulos-grade {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .modulos-grade {
+    grid-template-columns: 1fr;
+  }
+}
