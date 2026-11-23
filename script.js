@@ -256,8 +256,101 @@ document.getElementById("lista-frequencia").addEventListener("click", function (
   renderFrequencia();
 });
 
+// ---------- Cópia de segurança (exportar / importar JSON) ----------
+
+const CHAVES_DADOS = ["alunos", "professores", "inscricoes", "frequencia"];
+const NOMES_DADOS = { alunos: "aluno(s)", professores: "professor(es)", inscricoes: "inscrição(ões)", frequencia: "registro(s) de frequência" };
+
+function mostrarStatusBackup(mensagem, erro) {
+  const status = document.getElementById("backup-status");
+  status.textContent = mensagem;
+  status.classList.toggle("erro", Boolean(erro));
+}
+
+function dataHoje() {
+  const agora = new Date();
+  const doisDigitos = (n) => String(n).padStart(2, "0");
+  return agora.getFullYear() + "-" + doisDigitos(agora.getMonth() + 1) + "-" + doisDigitos(agora.getDate());
+}
+
+function renderTudo() {
+  renderAlunos();
+  renderProfessores();
+  renderInscricoes();
+  renderFrequencia();
+}
+
+document.getElementById("botao-exportar").addEventListener("click", function () {
+  const copia = {
+    sistema: "painel-educacao-fisica-inclusao",
+    versao: 1,
+    exportadoEm: new Date().toISOString(),
+    dados: {},
+  };
+  CHAVES_DADOS.forEach((chave) => {
+    copia.dados[chave] = carregar(chave);
+  });
+
+  const arquivo = new Blob([JSON.stringify(copia, null, 2)], { type: "application/json" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(arquivo);
+  link.download = "painel-backup-" + dataHoje() + ".json";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+
+  const total = CHAVES_DADOS.reduce((soma, chave) => soma + copia.dados[chave].length, 0);
+  mostrarStatusBackup("Cópia baixada com " + total + " registro(s). Guarde o arquivo em um lugar seguro.");
+});
+
+document.getElementById("botao-importar").addEventListener("click", function () {
+  document.getElementById("arquivo-importar").click();
+});
+
+document.getElementById("arquivo-importar").addEventListener("change", function (evento) {
+  const arquivo = evento.target.files[0];
+  evento.target.value = ""; // permite escolher o mesmo arquivo de novo depois
+  if (!arquivo) return;
+
+  const leitor = new FileReader();
+  leitor.onload = function () {
+    let copia;
+    try {
+      copia = JSON.parse(leitor.result);
+    } catch (erro) {
+      mostrarStatusBackup("Este arquivo não é uma cópia válida (não é JSON). Nada foi alterado.", true);
+      return;
+    }
+
+    const dados = copia && copia.dados;
+    const valido =
+      dados && typeof dados === "object" && CHAVES_DADOS.every((chave) => Array.isArray(dados[chave] || []));
+    if (!valido || !CHAVES_DADOS.some((chave) => Array.isArray(dados[chave]))) {
+      mostrarStatusBackup("Este arquivo não parece ser uma cópia do painel. Nada foi alterado.", true);
+      return;
+    }
+
+    const resumo = CHAVES_DADOS.map((chave) => (dados[chave] || []).length + " " + NOMES_DADOS[chave]).join(", ");
+    const quando = copia.exportadoEm ? " (cópia de " + new Date(copia.exportadoEm).toLocaleString("pt-BR") + ")" : "";
+    const confirmar = window.confirm(
+      "Restaurar esta cópia" + quando + "?\n\n" + resumo +
+      "\n\nATENÇÃO: os dados que estão no painel agora serão substituídos. Se quiser guardá-los, cancele e baixe uma cópia antes."
+    );
+    if (!confirmar) {
+      mostrarStatusBackup("Restauração cancelada. Nada foi alterado.");
+      return;
+    }
+
+    CHAVES_DADOS.forEach((chave) => salvar(chave, dados[chave] || []));
+    renderTudo();
+    mostrarStatusBackup("Cópia restaurada: " + resumo + ".");
+  };
+  leitor.onerror = function () {
+    mostrarStatusBackup("Não foi possível ler o arquivo. Nada foi alterado.", true);
+  };
+  leitor.readAsText(arquivo);
+});
+
 // ---------- Inicialização ----------
-renderAlunos();
-renderProfessores();
-renderInscricoes();
-renderFrequencia();
+renderTudo();

@@ -127,6 +127,37 @@ h2 {
   font-size: 1rem;
 }
 
+/* Cópia de segurança (painel) */
+.backup {
+  margin-top: 1.5rem;
+  border: 2px solid var(--cinza-borda);
+  border-radius: 12px;
+  padding: 1.2rem;
+}
+
+.backup h3 {
+  margin-top: 0;
+}
+
+.backup-botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.backup-botoes .botao {
+  flex: 1 1 16rem;
+}
+
+.backup-status {
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.backup-status.erro {
+  color: var(--rosa);
+}
+
 /* Formulários (painel) */
 .formulario {
   display: flex;

@@ -46,6 +46,17 @@
         </div>
       </div>
       <p class="ajuda">Use os botões acima para cadastrar alunos, professores, inscrições e marcar presença. Tudo fica salvo automaticamente neste computador.</p>
+
+      <div class="backup">
+        <h3>Cópia de segurança</h3>
+        <p>Os dados ficam só neste navegador. Baixe uma cópia com frequência e guarde em um lugar seguro (pendrive, Google Drive, e-mail). Com ela você recupera tudo em outro computador ou se o navegador for limpo.</p>
+        <div class="backup-botoes">
+          <button type="button" class="botao cor-azul-fundo" id="botao-exportar">⬇️ Baixar cópia dos dados</button>
+          <button type="button" class="botao cor-verde-fundo" id="botao-importar">⬆️ Restaurar a partir de uma cópia</button>
+          <input type="file" id="arquivo-importar" accept=".json,application/json" hidden>
+        </div>
+        <p class="backup-status" id="backup-status" role="status"></p>
+      </div>
     </section>
 
     <!-- ALUNOS -->
